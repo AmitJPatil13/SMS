@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import LoadingSpinner from './components/LoadingSpinner';
@@ -22,6 +23,14 @@ import ExamsPage from './pages/ExamsPage';
 import NotificationsPage from './pages/NotificationsPage';
 import ReportsPage from './pages/ReportsPage';
 import SettingsPage from './pages/SettingsPage';
+
+// Import additional pages
+import MyClassesPage from './pages/MyClassesPage';
+import MessagesPage from './pages/MessagesPage';
+import ResultsPage from './pages/ResultsPage';
+import AssignmentsPage from './pages/AssignmentsPage';
+import ChildrenPage from './pages/ChildrenPage';
+import FeesPage from './pages/FeesPage';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -47,10 +56,11 @@ const PublicRoute = ({ children }) => {
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="App">
-          <Routes>
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <div className="App">
+            <Routes>
             <Route 
               path="/login" 
               element={
@@ -91,11 +101,20 @@ function App() {
             <Route path="/reports" element={<ProtectedRoute><ReportsPage /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
             
+            {/* Additional Routes */}
+            <Route path="/my-classes" element={<ProtectedRoute><MyClassesPage /></ProtectedRoute>} />
+            <Route path="/messages" element={<ProtectedRoute><MessagesPage /></ProtectedRoute>} />
+            <Route path="/results" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
+            <Route path="/assignments" element={<ProtectedRoute><AssignmentsPage /></ProtectedRoute>} />
+            <Route path="/children" element={<ProtectedRoute><ChildrenPage /></ProtectedRoute>} />
+            <Route path="/fees" element={<ProtectedRoute><FeesPage /></ProtectedRoute>} />
+            
             <Route path="/" element={<Navigate to="/dashboard" />} />
-          </Routes>
-        </div>
-      </Router>
-    </AuthProvider>
+            </Routes>
+          </div>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

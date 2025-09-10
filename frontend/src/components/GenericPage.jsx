@@ -9,7 +9,8 @@ const GenericPage = ({
   icon, 
   iconBg = 'bg-blue-100', 
   children,
-  menuItems = null 
+  menuItems = null,
+  features = []
 }) => {
   const { user, logout } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -74,7 +75,7 @@ const GenericPage = ({
   const finalMenuItems = menuItems || getDefaultMenuItems();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
       <Sidebar 
         menuItems={finalMenuItems} 
         isOpen={sidebarOpen} 
@@ -92,20 +93,30 @@ const GenericPage = ({
         <main className="py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
-              <p className="mt-2 text-gray-600">{description}</p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h1>
+              <p className="mt-2 text-gray-600 dark:text-gray-400">{description}</p>
             </div>
 
-            <div className="bg-white shadow-lg rounded-lg p-6">
+            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
               {children || (
                 <div className="text-center py-12">
                   <div className={`mx-auto h-24 w-24 ${iconBg} rounded-full flex items-center justify-center mb-4`}>
                     <span className="text-4xl">{icon}</span>
                   </div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-2">{title}</h3>
-                  <p className="text-gray-500">
-                    This page is under development. Content will be added soon.
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 mb-6">
+                    This page will contain the following features:
                   </p>
+                  {features.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-gray-600 dark:text-gray-300">
+                      {features.map((feature, index) => (
+                        <div key={index} className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                          <div className="font-medium mb-2">{feature.title}</div>
+                          <p>{feature.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

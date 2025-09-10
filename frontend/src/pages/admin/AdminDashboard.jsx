@@ -25,7 +25,7 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
       <Sidebar 
         menuItems={adminMenuItems} 
         isOpen={sidebarOpen} 
@@ -44,8 +44,8 @@ const AdminDashboard = () => {
           <div className="max-w-7xl mx-auto content-wrapper">
             {/* Page header */}
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-              <p className="mt-2 text-gray-600">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Admin Dashboard</h1>
+              <p className="mt-2 text-gray-600 dark:text-gray-400">
                 Welcome back, {user?.name}! Here's what's happening at your school.
               </p>
             </div>

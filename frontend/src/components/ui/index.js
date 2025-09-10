@@ -6,3 +6,4 @@ export { default as Modal } from './Modal';
 export { default as Input } from './Input';
 export { default as StatsCard } from './StatsCard';
 export { default as NotificationBadge } from './NotificationBadge';
+export { default as ThemeToggle } from './ThemeToggle';

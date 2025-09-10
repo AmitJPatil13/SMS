@@ -48,10 +48,10 @@ const QuickActions = () => {
   ];
 
   return (
-    <div className="bg-white shadow-lg rounded-lg">
-      <div className="px-6 py-4 border-b border-gray-200">
-        <h3 className="text-lg font-medium text-gray-900">Quick Actions</h3>
-        <p className="text-sm text-gray-500">Common administrative tasks</p>
+    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <h3 className="text-lg font-medium text-gray-900 dark:text-white">Quick Actions</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Common administrative tasks</p>
       </div>
       <div className="p-6">
         <div className="grid grid-cols-1 gap-4">
@@ -59,19 +59,19 @@ const QuickActions = () => {
             <Link
               key={index}
               to={action.href}
-              className="group flex items-center p-4 rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200"
+              className="group flex items-center p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 hover:shadow-md transition-all duration-200"
             >
               <div className={`w-10 h-10 ${action.color} rounded-lg flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-200`}>
                 <span className="text-lg">{action.icon}</span>
               </div>
               <div className="ml-4 flex-1">
-                <h4 className="text-sm font-medium text-gray-900 group-hover:text-blue-600">
+                <h4 className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
                   {action.name}
                 </h4>
-                <p className="text-xs text-gray-500">{action.description}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{action.description}</p>
               </div>
               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
