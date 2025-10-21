@@ -1,0 +1,41 @@
+/* ===================================
+   🎨 MAIN ENTRY POINT
+   Premium School Management System
+   Component-Based Architecture
+   =================================== */
+
+/* Import Modular Stylesheets - MUST come before @tailwind */
+@import './styles/globals.css';
+@import './styles/animations.css';
+@import './styles/utilities.css';
+
+/* Import Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 📱 LAYOUT-SPECIFIC STYLES ===== */
+
+/* Simple content padding */
+.content-wrapper {
+  padding: 1.5rem;
+}
+
+/* Grid Layouts */
+.grid-responsive {
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
